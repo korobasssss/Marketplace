@@ -2,11 +2,37 @@ import search_icon from '../../assets/search_icon.svg'
 import cart_icon from '../../assets/cart_icon.svg'
 import close_icon from '../../assets/close_icon.svg'
 import select_css from './SelectionLine.module.css'
-import {useState} from "react";
+import React, {useState} from "react";
 import Cart from "../cart/Cart";
 const SelectionLine = () => {
     const [isSearchButtonPressed, setSearchButtonPressed] = useState(false)
     const [isCartButtonPressed, setCartButtonPressed] = useState(false)
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    const mouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+        isDown = true;
+        event.currentTarget.classList.add('active');
+        startX = event.pageX - event.currentTarget.offsetLeft;
+        scrollLeft = event.currentTarget.scrollLeft;
+    }
+    const mouseLeave = (event: React.MouseEvent<HTMLButtonElement>) => {
+        isDown = false;
+        event.currentTarget.classList.remove('active');
+    }
+    const mouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
+        isDown = false;
+        event.currentTarget.classList.remove('active');
+    }
+    const mouseMove = (event: React.MouseEvent<HTMLButtonElement>) => {
+        if(!isDown) return;
+        event.preventDefault();
+        const x = event.pageX - event.currentTarget.offsetLeft;
+        const walk = (x - startX); //scroll-fast
+        event.currentTarget.scrollLeft = scrollLeft - walk;
+    }
+
 
     return (
         <div className={select_css.root}>
@@ -22,8 +48,11 @@ const SelectionLine = () => {
                             <input placeholder={'Search...'}/>
                             <button><img src={close_icon} alt={'close icon'} onClick={() => setSearchButtonPressed(false)}/></button>
                         </section>
-                        :
-                        <section className={select_css.categories}>
+                        : /* todo категории потом в массив добавить в store чтобы тут не было много херни*/
+                        <section className={select_css.categories} onMouseDown={mouseDown}
+                                                                   onMouseLeave={mouseLeave}
+                                                                   onMouseUp={mouseUp}
+                                                                   onMouseMove={mouseMove}>
                             <button className={select_css.oneCategory}>all</button>
                             <button className={select_css.oneCategory}>smartphones</button>
                             <button className={select_css.oneCategory}>laptops</button>

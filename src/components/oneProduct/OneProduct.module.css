@@ -5,6 +5,8 @@
     height: 436px;
     padding: 16px;
     border: 1px solid #FFFFFF;
+
+    transition: opacity 3s ease;
 }
 
 .rootDescr {
@@ -12,6 +14,8 @@
     height: 436px;
     padding: 16px;
     border: 1px solid #FFFFFF;
+
+    transition: opacity 1s ease;
 }
 
 .main {
@@ -104,6 +108,7 @@
     display: grid;
     grid-template-areas: 'text text'
                          'text2 button';
+
 }
 
 p {
@@ -169,4 +174,9 @@ p {
 .priceWithoutSale {
     color: #5C6970;
     text-decoration: line-through;
+}
+
+.buttonAddedToCart {
+    background-color: #FFFFFF;
+    color: #3625FF;
 }

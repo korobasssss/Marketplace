@@ -18,6 +18,11 @@ const Products = () => {
                 <OneProduct/>
                 <OneProduct/>
                 <OneProduct/>
+                <OneProduct/>
+                <OneProduct/>
+                <OneProduct/>
+                <OneProduct/>
+                <OneProduct/>
             </main>
             <footer className={main_css.footer}>
                 <Footer/>

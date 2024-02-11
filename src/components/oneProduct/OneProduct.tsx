@@ -2,6 +2,7 @@ import oneProduct_css from './OneProduct.module.css'
 import iphonebig from '../../assets/iphonebig.svg'
 import starblue_icon from '../../assets/starblue_icon.svg'
 import buy_icon from '../../assets/buy_icon.svg'
+import buy_iconBlue from '../../assets/buy_iconBlue.svg'
 import {useState} from "react";
 
 const OneProduct = () => {
@@ -67,6 +68,10 @@ const OneProduct = () => {
                         <img src={buy_icon} alt={'buy icon'}/>
                         $549
                     </button>
+                    {/*<button className={oneProduct_css.buttonAddToCart + ' ' + oneProduct_css.buttonAddedToCart}>*/}
+                    {/*    <img src={buy_iconBlue} alt={'buy icon'}/>*/}
+                    {/*    added to cart*/}
+                    {/*</button>*/}
                     <div className={oneProduct_css.priceWithoutSale}>$685</div>
                 </section>
             </footer>

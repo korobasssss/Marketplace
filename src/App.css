@@ -3,7 +3,7 @@
     color: #2E3438;
     font-weight: 500;
     font-size: 0.9em;
-    height: 100%;
+    height: 100vh;
     /*font-family: 'Inter', sans-serif;*/
 
 }
@@ -18,4 +18,8 @@ p {
 
 .App {
     cursor: default;
+}
+
+body {
+    overflow: hidden;
 }

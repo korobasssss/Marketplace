@@ -70,7 +70,8 @@ input:focus {
     display: flex;
     gap: 1px;
     align-content: center;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-scrolling: touch;
     white-space: nowrap;
     border-radius: 4px;
 
@@ -98,6 +99,16 @@ input:focus {
     font-weight: 600;
 }
 
-/*.cart div {*/
-/*    color: #5C6970;*/
-/*}*/
+
+.categories::-webkit-scrollbar {
+    height: 0px;
+}
+
+.categories::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.categories::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0px;
+}

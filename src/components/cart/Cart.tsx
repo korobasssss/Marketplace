@@ -7,7 +7,7 @@ import OneSelectedProduct from "./oneSelectedProduct/OneSelectedProduct";
 const Cart = (props: CartInterface) => {
     return (
         <div className={cart_css.route}>
-            <section className={cart_css.overflay}></section>
+            <section className={cart_css.overflay} onClick={() => props.setCartButtonPressed(false)}></section>
             <section className={cart_css.cartPlace}>
                 <section className={cart_css.cartMain}>
                     <header className={cart_css.header}>
