@@ -1,11 +1,22 @@
-.root {
+.rootWithoutDescr {
     display: grid;
-    grid-template-rows: 24px auto 150px;
-
+    grid-template-rows: calc(288px + 24px) 124px;
     min-width: 320px;
-    height: 468px;
+    height: 436px;
     padding: 16px;
     border: 1px solid #FFFFFF;
+}
+
+.rootDescr {
+    min-width: 320px;
+    height: 436px;
+    padding: 16px;
+    border: 1px solid #FFFFFF;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 24px auto;
 }
 
 .header {
@@ -25,17 +36,41 @@
 
 .productPhoto {
     display: grid;
+    height: 288px;
     align-items: center;
     justify-items: center;
 }
 
-.info {
+.infoWithDescr {
+    height: 436px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.infoWithoutDescr {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-items: center;
     gap: 8px;
 }
 
-.aboutProduct {
+.productName {
+    height: 16px;
+    display: grid;
+    align-content: center;
+}
+
+.aboutProductFull {
+    font-weight: 500;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    margin: 0;
+}
+
+.aboutProductShort {
     font-weight: 500;
     font-size: 0.9em;
     height: 36px;
@@ -49,6 +84,7 @@
 }
 
 .idkWhatIsiT {
+    height: 20px;
     display: flex;
     padding: 2px 4px;
     gap: 4px;
@@ -59,15 +95,54 @@
 }
 
 .shortInfo {
-    display: inline-grid;
-    gap: 8px;
+    display: grid;
+    row-gap: 4px;
+}
+
+.grid {
+    margin: 0;
+    display: grid;
+    grid-template-areas: 'text text'
+                         'text2 button';
+}
+
+p {
+    font-size: 0.9em;
+    font-weight: 500;
+    word-spacing: 1px;
+    color: #5C6970;
+}
+
+.grid1 {
+    display: grid;
+    grid-area: text;
+}
+
+.grid2 {
+    display: grid;
+    grid-area: text2;
+}
+
+.grid3 {
+    display: grid;
+    grid-area: button;
+    margin-left: 3px;
 }
 
 .readMore {
+    display: grid;
+    align-content: end;
     width: max-content;
-    height: 18px;
     color: #3625FF;
     background-color: transparent;
+}
+
+.gridButton {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    top: 23px;
+    width: 70px;
 }
 
 .price {
@@ -78,11 +153,12 @@
 }
 
 .buttonAddToCart {
-    height: 100%;
+    height: 24px;
     display: flex;
     gap: 4px;
     justify-items: center;
     align-items: center;
+
 
     padding: 0 8px 0 4px;
     border-radius: 4px;
