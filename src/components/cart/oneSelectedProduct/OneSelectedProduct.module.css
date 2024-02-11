@@ -1,0 +1,49 @@
+.root {
+    margin: 5px 5px 5px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.dataProduct {
+    height: 48px;
+    width: 100%;
+    display: grid;
+    row-gap: 8px;
+}
+
+.addOrDeleteProduct {
+    padding: 4px 6px 4px 6px; /* todo исправить потом*/
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 8px;
+    width: 72px;
+    background-color: #EFEEF4;
+    border-radius: 4px;
+}
+
+.countProduct {
+    padding: 0 8px 0 8px;
+}
+
+.buttonPlusOrMinus {
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    border: none;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.priceBox {
+    display: grid;
+    justify-items: end;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #5C6970;
+}

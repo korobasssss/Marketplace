@@ -1,0 +1,155 @@
+.overflay {
+    display: grid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #EFEEF4D9;
+    opacity: 0.85;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.route {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+
+    top: 0;
+    left: 0;
+}
+
+.cartPlace {
+    position: fixed;
+
+    display: grid;
+    justify-self: end;
+
+    z-index: 1000;
+    width: 320px;
+    height: 100%;
+    background-color: #FFFFFF;
+
+    right: -200px; /* Начальное положение блока за пределами экрана */
+    animation: slideIn 1s forwards ; /* Применение анимации slideIn длительностью 1 секунда */
+}
+
+@keyframes slideIn {
+    from {
+        right: -200px; /* Начальное положение блока за пределами экрана */
+    }
+    to {
+        right: 0; /* Конечное положение блока справа */
+    }
+}
+
+.cartMain {
+    display: grid;
+    grid-template-rows: 20px calc(100vh - 20px - 116px - 48px) 116px;
+    padding: 22px 20px 24px 20px;
+}
+
+.cart {
+    width: 53px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20px auto;
+    column-gap: 4px;
+    border-radius: 4px;
+}
+
+.cartText {
+    display: grid;
+    align-self: center;
+    color: #3625FF;
+    font-weight: 600;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 53px auto;
+}
+
+.cancel {
+    width: 10px;
+    display: grid;
+    justify-self: end;
+}
+
+.cancel:focus {
+    animation: slideOut 1s forwards;
+}
+
+@keyframes slideOut {
+    from {
+        right: 0; /* Изначальное положение блока в правом верхнем углу */
+    }
+    to {
+        right: -200px; /* Конечное положение блока за пределами экрана */
+    }
+}
+
+.cancel img {
+    display: grid;
+    align-self: center;
+}
+
+.selectedProducts {
+    margin: 36px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    overflow-y: auto;
+}
+
+.cartFooter {
+    display: grid;
+    grid-template-rows: 28px 40px;
+    row-gap: 4px;
+    height: 116px;
+    align-content: end;
+}
+
+.prise {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productsCount {
+    font-size: 0.8em;
+    color: #5C6970;
+}
+
+.productsFinalPrise {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.buttonBack {
+    width: 100%;
+    height: 40px;
+    background: #3625FF;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+
+.selectedProducts::-webkit-scrollbar {
+    width: 5px;
+}
+
+.selectedProducts::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.selectedProducts::-webkit-scrollbar-thumb {
+    background: #d5d4d4;
+    border-radius: 5px;
+}

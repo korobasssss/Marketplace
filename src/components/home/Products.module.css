@@ -1,0 +1,59 @@
+.root {
+    display: grid;
+    grid-template-rows: 64px auto 64px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.header {
+    display: grid;
+}
+
+.products {
+    display: grid;
+}
+
+.footer {
+    display: grid;
+    align-items: center;
+    border: 1px solid #FFFFFF;
+}
+
+
+.root::-webkit-scrollbar {
+    width: 10px;
+}
+
+.root::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.root::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+@media screen and (min-width: 1770px) {
+    .products {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media screen and (min-width: 1420px) and (max-width: 1769px){
+    .products {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (min-width: 1060px) and (max-width: 1419px){
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 710px) and (max-width: 1059px){
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 709px){
+    .products {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
