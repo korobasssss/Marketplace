@@ -2,6 +2,7 @@ import oneSelectedProduct_css from './OneSelectedProduct.module.css'
 import iphone from '../../../assets/iphone.svg'
 import plus_icon from '../../../assets/plus_icon.svg'
 import minus_icon from '../../../assets/minus_icon.svg'
+import trash_icon from '../../../assets/trash_icon.svg'
 
 const OneSelectedProduct = () => {
     return (
@@ -24,6 +25,12 @@ const OneSelectedProduct = () => {
             <section className={oneSelectedProduct_css.priceBox}>
                 <div className={oneSelectedProduct_css.price}>$549</div>
             </section>
+            <section className={oneSelectedProduct_css.select}>
+
+            </section>
+            <button className={oneSelectedProduct_css.deleteMark}>
+                <img src={trash_icon} alt={'trash icon'}/>
+            </button>
         </div>
     )
 }

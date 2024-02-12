@@ -1,5 +1,6 @@
 .root {
-    margin: 5px 5px 5px 0;
+    position: relative;
+    margin: 5px 0 5px 0;
     display: flex;
     gap: 10px;
 }
@@ -46,4 +47,60 @@
     font-size: 1.2em;
     font-weight: 500;
     color: #5C6970;
+}
+
+.deleteMark {
+    position: absolute;
+    left: 95%;
+    height: 60px;
+    width: 300px;
+    display: grid;
+    justify-items: left;
+    align-items: center;
+    padding-left: 14px;
+
+    opacity: 0;
+
+    border-radius: 4px 0 0 4px;
+    background-color: #D35151;
+}
+
+.root:hover .deleteMark {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+/*.root:not(:hover) .deleteMark {*/
+/*    animation: fadeOut 0.2s ease-in-out;*/
+/*}*/
+
+.deleteMark:hover {
+    opacity: 1;
+    width: 100px;
+    left: 67%;
+    transition: opacity 0.5s;
+}
+/*@keyframes fadeIn {*/
+/*    0% {*/
+/*        opacity: 0;*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
+
+/*.deleteMark:not(:hover) {*/
+/*    animation: fadeOut 1s ease-in-out;*/
+/*}*/
+/*@keyframes fadeOut {*/
+/*    0% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 0;*/
+/*    }*/
+/*}*/
+
+.select {
+    width: 20px;
 }
