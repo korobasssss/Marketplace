@@ -4,11 +4,12 @@ import close_icon from '../../assets/close_icon.svg'
 import select_css from './SelectionLine.module.css'
 import React, {useState} from "react";
 import Cart from "../cart/Cart";
-const SelectionLine = () => {
+import {CategoriesArr, SelectionLinePropsInterface} from "../interface/selectionLineInterface";
+const SelectionLine = (props: SelectionLinePropsInterface) => {
     const [isSearchButtonPressed, setSearchButtonPressed] = useState(false)
     const [isCartButtonPressed, setCartButtonPressed] = useState(false)
 
-    let isDown = false;
+    let isDown = false; // todo перенести в отдельный файл
     let startX = 0;
     let scrollLeft = 0;
     const mouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -33,6 +34,14 @@ const SelectionLine = () => {
         event.currentTarget.scrollLeft = scrollLeft - walk;
     }
 
+    const setInputSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        props.setInputSearch(event.target.value)
+    }
+
+    const closeSearch = () => {
+        setSearchButtonPressed(false)
+        props.deleteInputSearch()
+    }
 
     return (
         <div className={select_css.root}>
@@ -45,35 +54,20 @@ const SelectionLine = () => {
                     </button>
                     {isSearchButtonPressed ?
                         <section className={select_css.search}>
-                            <input placeholder={'Search...'}/>
-                            <button><img src={close_icon} alt={'close icon'} onClick={() => setSearchButtonPressed(false)}/></button>
+                            <input placeholder={'Search...'} value={props.inputSearch} onChange={setInputSearch}/>
+                            <button><img src={close_icon} alt={'close icon'} onClick={closeSearch}/></button>
                         </section>
-                        : /* todo категории потом в массив добавить в store чтобы тут не было много херни*/
+                        :
                         <section className={select_css.categories} onMouseDown={mouseDown}
                                                                    onMouseLeave={mouseLeave}
                                                                    onMouseUp={mouseUp}
                                                                    onMouseMove={mouseMove}>
-                            <button className={select_css.oneCategory}>all</button>
-                            <button className={select_css.oneCategory}>smartphones</button>
-                            <button className={select_css.oneCategory}>laptops</button>
-                            <button className={select_css.oneCategory}>fragrances</button>
-                            <button className={select_css.oneCategory}>skincare</button>
-                            <button className={select_css.oneCategory}>groceries</button>
-                            <button className={select_css.oneCategory}>home-decoration</button>
-                            <button className={select_css.oneCategory}>furniture</button>
-                            <button className={select_css.oneCategory}>tops</button>
-                            <button className={select_css.oneCategory}>womens-dresses</button>
-                            <button className={select_css.oneCategory}>womens-shoes</button>
-                            <button className={select_css.oneCategory}>mens-shirts</button>
-                            <button className={select_css.oneCategory}>mens-shoes</button>
-                            <button className={select_css.oneCategory}>mens-watches</button>
-                            <button className={select_css.oneCategory}>womens-watches</button>
-                            <button className={select_css.oneCategory}>womens-bags</button>
-                            <button className={select_css.oneCategory}>womens-jewellery</button>
-                            <button className={select_css.oneCategory}>sunglasses</button>
-                            <button className={select_css.oneCategory}>automotive</button>
-                            <button className={select_css.oneCategory}>motorcycle</button>
-                            <button className={select_css.oneCategory}>lighting</button>
+                            {props.categories.map((oneCategory : CategoriesArr, index) => {
+                                return <button key={index} className={oneCategory.isActive ? select_css.activeCategory : select_css.oneCategory}
+                                               onClick={() => props.chooseCategory(oneCategory.type, index)}>
+                                    {oneCategory.isActive ? '•' : ''} {oneCategory.type}
+                                </button>
+                            })}
                         </section>
                     }
 

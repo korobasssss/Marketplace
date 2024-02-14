@@ -6,6 +6,7 @@
     display: grid;
 
     background: #EFEEF4;
+    z-index: 999;
 }
 
 .header {
@@ -82,6 +83,17 @@ input:focus {
     padding: 4px 8px 4px 8px;
     white-space: nowrap;
     font-size: 15px;
+}
+
+.activeCategory {
+    padding: 4px 8px 4px 8px;
+    white-space: nowrap;
+    font-size: 15px;
+
+    background-color: #3625FF;
+    color: white;
+
+    transition: all 0.2s ease-in-out;
 }
 
 .cart {

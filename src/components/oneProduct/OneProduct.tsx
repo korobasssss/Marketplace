@@ -1,5 +1,4 @@
 import oneProduct_css from './OneProduct.module.css'
-import iphonebig from '../../assets/iphonebig.svg'
 import starBlue_icon from '../../assets/starblue_icon.svg'
 import buy_icon from '../../assets/buy_icon.svg'
 import buy_iconBlue from '../../assets/buy_iconBlue.svg'
@@ -8,6 +7,7 @@ import {OneProductProps} from "../interface/oneProductInterface";
 
 const OneProduct = (props: OneProductProps) => {
     const [isButtonReadMorePressed, setButtonReadMorePressed] = useState(false)
+    const [photoIndex, setPhotoIndex] = useState(0)
 
     return (
         <div className={isButtonReadMorePressed ? oneProduct_css.rootDescr : oneProduct_css.rootWithoutDescr}>
@@ -18,7 +18,17 @@ const OneProduct = (props: OneProductProps) => {
                         <div>off sale</div>
                     </header>
                     <main className={oneProduct_css.productPhoto}>
-                        <img src={props.product.images[0]} alt={'product'}/>
+                        <img src={props.product.images[photoIndex]} alt={'product'}/>
+                        <section className={oneProduct_css.photoButtons}>
+                            {props.product.images.map((product: string, index) => {
+                                return <button key={index} className={photoIndex === index ? oneProduct_css.onePhotoButtonActive :
+                                                                                 oneProduct_css.onePhotoButtonNotActive}
+                                               onClick={() => setPhotoIndex(index)}>
+                                    •
+                                </button>
+                            })}
+
+                        </section>
                     </main>
                 </section>
             }

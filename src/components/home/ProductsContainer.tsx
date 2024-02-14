@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {ProductsStateClass} from "../interface/productsInterface";
-import {setCurrProducts} from "../../store/thunks/productsThunk";
+import {setAllProducts} from "../../store/thunks/productsThunk";
 import ProductsClass from "./ProductsClass";
 
 const mapStateToProps = (state: ProductsStateClass) => {
@@ -10,6 +10,6 @@ const mapStateToProps = (state: ProductsStateClass) => {
 }
 
 const mapDispatchToProps = {
-    setCurrProducts
+    setAllProducts: setAllProducts
 }
 export const ProductsContainer = connect(mapStateToProps, mapDispatchToProps)(ProductsClass)

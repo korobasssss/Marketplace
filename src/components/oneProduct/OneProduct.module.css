@@ -43,6 +43,8 @@
 .productPhoto {
     display: grid;
     height: 270px;
+    grid-template-rows: 255px 10px;
+    row-gap: 5px;
     width: 100%;
     align-self: center;
     justify-self: center;
@@ -52,9 +54,29 @@
     display: grid;
     justify-self: center;
     align-self: center;
-    height: 270px;
+    max-height: 260px;
     width: 100%;
     object-fit: contain;
+}
+
+.photoButtons {
+    display: flex;
+    justify-self: center;
+    gap: 13px;
+    height: 8px;
+
+    position: relative;
+    transition: all 1s ease-out;
+
+}
+
+.onePhotoButtonNotActive {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+.onePhotoButtonActive {
+    background-color: transparent;
+    color: #5C6970;
 }
 
 .infoWithDescr {

@@ -7,7 +7,7 @@ export interface ProductsStateClass {
 
 export interface ProductsPropsClass {
     products : []
-    setCurrProducts(): void
+    setAllProducts(): void
 }
 export interface ProductsState {
     products : []

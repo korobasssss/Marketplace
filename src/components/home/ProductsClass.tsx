@@ -5,7 +5,7 @@ import {ProductsPropsClass, ProductsState} from "../interface/productsInterface"
 class ProductsClass extends React.Component<ProductsPropsClass, ProductsState> {
 
     componentDidMount() {
-        this.props.setCurrProducts()
+        this.props.setAllProducts()
     }
 
     render() {
