@@ -10,6 +10,13 @@
     transition: opacity 3s ease;
 }
 
+.rootWithoutDescr:hover .photoButtons{
+    display: flex;
+}
+.rootDescr:hover .photoButtons{
+    display: flex;
+}
+
 .rootDescr {
     min-width: 320px;
     height: 436px;
@@ -57,16 +64,18 @@
     max-height: 260px;
     width: 100%;
     object-fit: contain;
+
+    transition: all 1s linear;
 }
 
 .photoButtons {
-    display: flex;
+    display: none;
     justify-self: center;
     gap: 13px;
     height: 8px;
 
     position: relative;
-    transition: all 1s ease-out;
+    transition: all 1s linear;
 
 }
 
