@@ -1,6 +1,7 @@
 .rootWithoutDescr {
     display: grid;
-    grid-template-rows: calc(288px + 24px) 124px;
+    grid-template-rows: calc(283px + 24px) 124px;
+    row-gap: 5px;
     min-width: 320px;
     height: 436px;
     padding: 16px;
@@ -21,6 +22,7 @@
 .main {
     display: grid;
     grid-template-rows: 24px auto;
+    row-gap: 5px;
 }
 
 .header {
@@ -40,9 +42,19 @@
 
 .productPhoto {
     display: grid;
-    height: 288px;
-    align-items: center;
-    justify-items: center;
+    height: 270px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+}
+
+.productPhoto img {
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    height: 270px;
+    width: 100%;
+    object-fit: contain;
 }
 
 .infoWithDescr {
@@ -104,14 +116,14 @@
 }
 
 .grid {
-    margin: 0;
     display: grid;
-    grid-template-areas: 'text text'
-                         'text2 button';
-
+    max-height: 36px;
+    margin: 0;
 }
 
 p {
+    display: grid;
+    align-content: center;
     font-size: 0.9em;
     font-weight: 500;
     word-spacing: 1px;
@@ -119,8 +131,10 @@ p {
 }
 
 .grid1 {
+    height: 36px;
     display: grid;
     grid-area: text;
+    overflow: hidden;
 }
 
 .grid2 {
@@ -129,14 +143,13 @@ p {
 }
 
 .grid3 {
+    position: relative;
     display: grid;
-    grid-area: button;
+    justify-self: end;
     margin-left: 3px;
 }
 
 .readMore {
-    display: grid;
-    align-content: end;
     width: max-content;
     color: #3625FF;
     background-color: transparent;
@@ -169,6 +182,11 @@ p {
     border-radius: 4px;
     background-color: #3625FF;
     color: white;
+    transition: all 0.2s ease-in-out;
+}
+.buttonAddToCart:hover {
+    background-color: #0C0099;
+    transition: all 0.2s ease-in-out;
 }
 
 .priceWithoutSale {

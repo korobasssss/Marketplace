@@ -1,28 +1,20 @@
 import SelectionLine from "../selectionLine/SelectionLine";
-import OneProduct from "../oneProduct/OneProduct";
 import Footer from "../footer/Footer";
 import main_css from './Products.module.css'
+import {ProductsProps} from "../interface/productsInterface";
+import {OneProductInterface} from '../interface/oneProductInterface'
+import OneProduct from "../oneProduct/OneProduct";
 
-const Products = () => {
+const Products = (props: ProductsProps) => {
     return (
         <div className={main_css.root}>
             <header className={main_css.header}>
                 <SelectionLine/>
             </header>
             <main className={main_css.products}>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
-                <OneProduct/>
+                {props.products.map((oneProduct: OneProductInterface) => {
+                    return <OneProduct product={oneProduct}/>
+                })}
             </main>
             <footer className={main_css.footer}>
                 <Footer/>

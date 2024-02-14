@@ -3,6 +3,7 @@
     margin: 5px 0 5px 0;
     display: flex;
     gap: 10px;
+    transition: opacity 0.5s;
 }
 
 .dataProduct {
@@ -63,6 +64,7 @@
 
     border-radius: 4px 0 0 4px;
     background-color: #D35151;
+    transition: opacity 0.5s;
 }
 
 .root:hover .deleteMark {
@@ -70,36 +72,35 @@
     opacity: 1;
     transition: opacity 0.5s;
 }
-/*.root:not(:hover) .deleteMark {*/
-/*    animation: fadeOut 0.2s ease-in-out;*/
-/*}*/
 
 .deleteMark:hover {
     opacity: 1;
     width: 100px;
     left: 67%;
-    transition: opacity 0.5s;
+    transition: padding-right 1s ease-in;
 }
-/*@keyframes fadeIn {*/
-/*    0% {*/
-/*        opacity: 0;*/
-/*    }*/
-/*    100% {*/
-/*        opacity: 1;*/
-/*    }*/
-/*}*/
 
-/*.deleteMark:not(:hover) {*/
-/*    animation: fadeOut 1s ease-in-out;*/
-/*}*/
-/*@keyframes fadeOut {*/
-/*    0% {*/
-/*        opacity: 1;*/
-/*    }*/
-/*    100% {*/
-/*        opacity: 0;*/
-/*    }*/
-/*}*/
+.root:hover {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 .select {
     width: 20px;

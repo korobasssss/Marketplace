@@ -1,0 +1,16 @@
+import React from "react";
+import Products from "./Products";
+import {ProductsPropsClass, ProductsState} from "../interface/productsInterface";
+
+class ProductsClass extends React.Component<ProductsPropsClass, ProductsState> {
+
+    componentDidMount() {
+        this.props.setCurrProducts()
+    }
+
+    render() {
+        return <Products products={this.props.products}/>
+    }
+}
+
+export default ProductsClass

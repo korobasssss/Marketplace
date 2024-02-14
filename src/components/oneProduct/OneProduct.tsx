@@ -1,11 +1,12 @@
 import oneProduct_css from './OneProduct.module.css'
 import iphonebig from '../../assets/iphonebig.svg'
-import starblue_icon from '../../assets/starblue_icon.svg'
+import starBlue_icon from '../../assets/starblue_icon.svg'
 import buy_icon from '../../assets/buy_icon.svg'
 import buy_iconBlue from '../../assets/buy_iconBlue.svg'
 import {useState} from "react";
+import {OneProductProps} from "../interface/oneProductInterface";
 
-const OneProduct = () => {
+const OneProduct = (props: OneProductProps) => {
     const [isButtonReadMorePressed, setButtonReadMorePressed] = useState(false)
 
     return (
@@ -13,11 +14,11 @@ const OneProduct = () => {
             {isButtonReadMorePressed ? null :
                 <section className={oneProduct_css.main}>
                     <header className={oneProduct_css.header}>
-                        <div className={oneProduct_css.sale}>12.96%</div>
+                        <div className={oneProduct_css.sale}>{props.product.discountPercentage}%</div>
                         <div>off sale</div>
                     </header>
                     <main className={oneProduct_css.productPhoto}>
-                        <img src={iphonebig} alt={'product'}/>
+                        <img src={props.product.images[0]} alt={'product'}/>
                     </main>
                 </section>
             }
@@ -25,17 +26,14 @@ const OneProduct = () => {
                 className={isButtonReadMorePressed ? oneProduct_css.infoWithDescr : oneProduct_css.infoWithoutDescr}>
                 <section className={oneProduct_css.infoWithoutDescr}>
                     <section className={oneProduct_css.idkWhatIsiT}> {/* todo переименовать потом класс*/}
-                        <img src={starblue_icon} alt={'blue star icon'}/>
-                        <div>4.69</div>
+                        <img src={starBlue_icon} alt={'blue star icon'}/>
+                        <div>{props.product.rating}</div>
                     </section>
-                    <div className={oneProduct_css.productName}>Apple iPhone 9</div>
+                    <div className={oneProduct_css.productName}>{props.product.title}</div>
                     {!isButtonReadMorePressed ?
                         <section className={oneProduct_css.grid}>
-                            <p className={oneProduct_css.grid1}>
-                                An apple mobile which is nothing like apple An apple
-                            </p>
-                            <p className={oneProduct_css.grid2}>
-                                mobile which is nothing like apple An...
+                            <p className={oneProduct_css.aboutProductShort}>
+                                {props.product.description}
                             </p>
                             <button className={oneProduct_css.readMore + ' ' + oneProduct_css.grid3}
                                     onClick={() => setButtonReadMorePressed(true)}>
@@ -45,15 +43,7 @@ const OneProduct = () => {
                         :
                         <section className={oneProduct_css.shortInfo}>
                             <p className={oneProduct_css.aboutProductFull}>
-                                An apple mobile which is nothing like apple An apple mobile which is nothing like apple
-                                An apple
-                                mobile which is nothing like apple An apple mobile which is nothing like apple An apple
-                                mobile
-                                which is nothing like apple An apple mobile which is nothing like apple An apple mobile
-                                which is
-                                nothing like apple An apple mobile which is nothing like apple An apple mobile which is
-                                nothing
-                                like apple An apple mobile which is nothing like apple
+                                {props.product.description}
                             </p>
                             <button className={oneProduct_css.readMore}
                                     onClick={() => setButtonReadMorePressed(false)}>
@@ -66,13 +56,15 @@ const OneProduct = () => {
                 <section className={oneProduct_css.price}>
                     <button className={oneProduct_css.buttonAddToCart}>
                         <img src={buy_icon} alt={'buy icon'}/>
-                        $549
+                        ${props.product.price}
                     </button>
                     {/*<button className={oneProduct_css.buttonAddToCart + ' ' + oneProduct_css.buttonAddedToCart}>*/}
                     {/*    <img src={buy_iconBlue} alt={'buy icon'}/>*/}
                     {/*    added to cart*/}
                     {/*</button>*/}
-                    <div className={oneProduct_css.priceWithoutSale}>$685</div>
+                    <div className={oneProduct_css.priceWithoutSale}>
+                        ${Math.ceil(props.product.price + props.product.price * props.product.discountPercentage / 100)}
+                    </div>
                 </section>
             </footer>
         </div>
