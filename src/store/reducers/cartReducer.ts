@@ -1,6 +1,7 @@
 import {OneProductInterface} from "../../interface/oneProductInterface";
 import {OneProductCartInterface} from "../../interface/oneSelectedProductInterface";
 
+const SET_ALL_PRODUCTS_CART = 'SET_ALL_PRODUCTS_CART'
 const ADD_PRODUCT = 'ADD_PRODUCT'
 const ADD_COUNT_PRODUCT = 'ADD_COUNT_PRODUCT'
 const DELETE_PRODUCT = 'DELETE_PRODUCT'
@@ -16,6 +17,10 @@ const initialState : {cartProducts: OneProductCartInterface[], count: number, pr
 const cartReducer = (state = initialState, action : any) => {
     let stateCopy = {...state, cartProducts: [...state.cartProducts]}
     switch (action.type) {
+        case SET_ALL_PRODUCTS_CART: {
+            stateCopy.cartProducts = action.cartProducts
+            return stateCopy
+        }
         case ADD_PRODUCT: {
             action.oneProduct['count'] = 1
             stateCopy.cartProducts.push(action.oneProduct)
@@ -63,6 +68,11 @@ const cartReducer = (state = initialState, action : any) => {
     }
 }
 
+export const setAllProductsCart = (cartProducts: OneProductCartInterface[]) => {
+    return {
+        type: SET_ALL_PRODUCTS_CART, cartProducts
+    }
+}
 export const addProductToCart = (oneProduct: OneProductInterface) => {
     return {
         type: ADD_PRODUCT, oneProduct

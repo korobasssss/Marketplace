@@ -4,7 +4,7 @@ const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES'
 const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 const SET_INPUT_SEARCH = 'SET_INPUT_SEARCH'
 
-const initialState: { categories: CategoriesArr[], inputSearch: string } = { // todo брать категории из апи
+const initialState: { categories: CategoriesArr[], inputSearch: string } = {
     categories: [],
     inputSearch: ''
 }
@@ -13,6 +13,7 @@ const selectionReducer = (state = initialState, action: any) => {
     let stateCopy = {...state, categories: [...state.categories]}
     switch (action.type) {
         case GET_ALL_CATEGORIES : {
+            stateCopy.categories = []
             stateCopy.categories.push(
                 {
                     type: 'all',
@@ -27,6 +28,7 @@ const selectionReducer = (state = initialState, action: any) => {
                     }
                 )
             }
+            debugger
             return stateCopy
         }
         case SET_ACTIVE_CATEGORY : {

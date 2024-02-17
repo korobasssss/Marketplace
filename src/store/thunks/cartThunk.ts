@@ -1,10 +1,24 @@
 import {Dispatch} from "redux";
 import {
     addCountProductToCart, addProductToCart, deleteCountProductToCart,
-    deleteProductFromCart
+    deleteProductFromCart, setAllProductsCart
 } from "../reducers/cartReducer";
 import {OneProductInterface} from "../../interface/oneProductInterface";
 
+export const setAllProductsInCart = () => {
+    return (dispatch: Dispatch) => {
+        if (localStorage.getItem('persist:root') !== null)  {
+            // @ts-ignore
+            let root = JSON.parse(localStorage.getItem('persist:root'))
+            if (root.cart.cartProducts === undefined) {
+                dispatch(setAllProductsCart([]))
+            } else {
+                dispatch(setAllProductsCart(root.cart.cartProducts))
+            }
+
+        }
+    }
+}
 export const addOneProductToCart = (product: OneProductInterface) => {
     return (dispatch: Dispatch) => {
         dispatch(addProductToCart(product))

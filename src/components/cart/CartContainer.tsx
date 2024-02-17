@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
 import {CartState} from "../../interface/cartInterface";
-import Cart from "./Cart";
 import {
     addOneCountProductToCart,
     deleteOneCountProductFromCart,
-    deleteOneProductFromCart
+    deleteOneProductFromCart, setAllProductsInCart
 } from "../../store/thunks/cartThunk";
+import CartClass from "./CartClass";
 
 
 const mapStateToProps = (state: CartState) => {
@@ -19,6 +19,7 @@ const mapStateToProps = (state: CartState) => {
 const mapDispatchToProps = {
     deleteOneProductFromCart,
     addOneCountProductToCart,
-    deleteOneCountProductFromCart
+    deleteOneCountProductFromCart,
+    setAllProductsInCart
 }
-export const CartContainer = connect(mapStateToProps, mapDispatchToProps)(Cart)
+export const CartContainer = connect(mapStateToProps, mapDispatchToProps)(CartClass)
