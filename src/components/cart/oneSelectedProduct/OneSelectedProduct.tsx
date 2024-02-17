@@ -23,7 +23,7 @@ const OneSelectedProduct = (props: OneCartPropsComponent) => {
                 </section>
             </section>
             <section className={oneSelectedProduct_css.priceBox}>
-                <div className={oneSelectedProduct_css.price}>$549</div>
+                <div className={oneSelectedProduct_css.price}>${props.oneProduct.price * props.oneProduct.count}</div>
             </section>
             <section className={oneSelectedProduct_css.select}>
 

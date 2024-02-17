@@ -43,7 +43,7 @@ const cartReducer = (state = initialState, action : any) => {
                     return true
                 }
                 return false
-            } )
+            })
             stateCopy.count -= 1
             return stateCopy
         }
