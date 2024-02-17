@@ -1,6 +1,8 @@
+import {OneProductInterface} from "../../interface/oneProductInterface";
+
 const SET_PRODUCTS = 'SET_PRODUCTS'
 
-const initialState = {
+const initialState : {products: OneProductInterface[]} = {
     products: []
 }
 
@@ -17,7 +19,7 @@ const productsReducer = (state = initialState, action: any) => {
     }
 }
 
-export const setProducts = (products: []) => {
+export const setProducts = (products: OneProductInterface[]) => {
     return {
         type: SET_PRODUCTS, products
     }

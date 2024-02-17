@@ -1,9 +1,9 @@
 import Footer from "../footer/Footer";
 import main_css from './Products.module.css'
-import {ProductsProps} from "../interface/productsInterface";
-import {OneProductInterface} from '../interface/oneProductInterface'
-import OneProduct from "../oneProduct/OneProduct";
+import {ProductsProps} from "../../interface/productsInterface";
+import {OneProductInterface} from '../../interface/oneProductInterface'
 import {SelectionLineContainer} from "../selectionLine/SelectionLineContainer";
+import {OneSelectedProductContainer} from "../oneProduct/OneProductContainer";
 
 const Products = (props: ProductsProps) => {
     return (
@@ -13,7 +13,7 @@ const Products = (props: ProductsProps) => {
             </header>
             <main className={main_css.products}>
                 {props.products.map((oneProduct: OneProductInterface, index) => {
-                    return <OneProduct key={index} product={oneProduct}/>
+                    return <OneSelectedProductContainer key={index} product={oneProduct}/>
                 })}
             </main>
             <footer className={main_css.footer}>

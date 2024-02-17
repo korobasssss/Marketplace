@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {
     SelectionLinePropsClassInterface,
     SelectionLineStateInterface
-} from "../interface/selectionLineInterface";
+} from "../../interface/selectionLineInterface";
 import SelectionLine from "./SelectionLine";
 
 class SelectionLineClass extends Component<SelectionLinePropsClassInterface, SelectionLineStateInterface> {

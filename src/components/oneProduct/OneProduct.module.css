@@ -215,6 +215,7 @@ p {
     color: white;
     transition: all 0.2s ease-in-out;
 }
+
 .buttonAddToCart:hover {
     background-color: #0C0099;
     transition: all 0.2s ease-in-out;
@@ -226,6 +227,11 @@ p {
 }
 
 .buttonAddedToCart {
+    background-color: #FFFFFF;
+    color: #3625FF;
+}
+
+.buttonAddedToCart:hover {
     background-color: #FFFFFF;
     color: #3625FF;
 }

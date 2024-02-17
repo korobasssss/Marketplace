@@ -1,7 +1,7 @@
 const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 const SET_INPUT_SEARCH = 'SET_INPUT_SEARCH'
 
-const initialState = {
+const initialState = { // todo брать категории из апи
     categories:
         [
             {type: 'all', isActive: true},

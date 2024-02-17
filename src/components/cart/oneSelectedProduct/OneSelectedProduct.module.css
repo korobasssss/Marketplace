@@ -6,6 +6,17 @@
     transition: opacity 0.5s;
 }
 
+.productImg {
+    width: 60px;
+    height: 60px;
+}
+
+.productImg img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
 .dataProduct {
     height: 48px;
     width: 100%;

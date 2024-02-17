@@ -3,11 +3,21 @@ import starBlue_icon from '../../assets/starblue_icon.svg'
 import buy_icon from '../../assets/buy_icon.svg'
 import buy_iconBlue from '../../assets/buy_iconBlue.svg'
 import {useState} from "react";
-import {OneProductProps} from "../interface/oneProductInterface";
+import {OneProductProps} from "../../interface/oneProductInterface";
 
 const OneProduct = (props: OneProductProps) => {
     const [isButtonReadMorePressed, setButtonReadMorePressed] = useState(false)
+    const [isButtonInCart, setButtonInCart] = useState(false)
     const [photoIndex, setPhotoIndex] = useState(0)
+
+    const clickToAddToCart = () => {
+        setButtonInCart(true)
+        props.addOneProductToCart()
+    }
+    const clickToDeleteFromCart = () => {
+        setButtonInCart(false)
+        props.deleteOneProductFromCart()
+    }
 
     return (
         <div className={isButtonReadMorePressed ? oneProduct_css.rootDescr : oneProduct_css.rootWithoutDescr}>
@@ -20,7 +30,7 @@ const OneProduct = (props: OneProductProps) => {
                     <main className={oneProduct_css.productPhoto}>
                         <img src={props.product.images[photoIndex]} alt={'product'}/>
                         <section className={oneProduct_css.photoButtons}>
-                            {props.product.images.map((product: string, index) => {
+                            {props.product.images.map((_product: string, index) => {
                                 return <button key={index} className={photoIndex === index ? oneProduct_css.onePhotoButtonActive :
                                                                                  oneProduct_css.onePhotoButtonNotActive}
                                                onClick={() => setPhotoIndex(index)}>
@@ -64,14 +74,20 @@ const OneProduct = (props: OneProductProps) => {
 
                 </section>
                 <section className={oneProduct_css.price}>
-                    <button className={oneProduct_css.buttonAddToCart}>
-                        <img src={buy_icon} alt={'buy icon'}/>
-                        ${props.product.price}
-                    </button>
-                    {/*<button className={oneProduct_css.buttonAddToCart + ' ' + oneProduct_css.buttonAddedToCart}>*/}
-                    {/*    <img src={buy_iconBlue} alt={'buy icon'}/>*/}
-                    {/*    added to cart*/}
-                    {/*</button>*/}
+                    {isButtonInCart ?
+                        <button className={oneProduct_css.buttonAddToCart + ' ' + oneProduct_css.buttonAddedToCart}
+                                onClick={clickToDeleteFromCart}>
+                            <img src={buy_iconBlue} alt={'buy icon'}/>
+                            added to cart
+                        </button>
+
+                    :
+                        <button className={oneProduct_css.buttonAddToCart}
+                                onClick={clickToAddToCart}>
+                            <img src={buy_icon} alt={'buy icon'}/>
+                            ${props.product.price}
+                        </button>
+                    }
                     <div className={oneProduct_css.priceWithoutSale}>
                         ${Math.ceil(props.product.price + props.product.price * props.product.discountPercentage / 100)}
                     </div>

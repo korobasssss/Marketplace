@@ -4,7 +4,8 @@ import close_icon from '../../assets/close_icon.svg'
 import select_css from './SelectionLine.module.css'
 import React, {useState} from "react";
 import Cart from "../cart/Cart";
-import {CategoriesArr, SelectionLinePropsInterface} from "../interface/selectionLineInterface";
+import {CategoriesArr, SelectionLinePropsInterface} from "../../interface/selectionLineInterface";
+import {CartContainer} from "../cart/CartContainer";
 const SelectionLine = (props: SelectionLinePropsInterface) => {
     const [isSearchButtonPressed, setSearchButtonPressed] = useState(false)
     const [isCartButtonPressed, setCartButtonPressed] = useState(false)
@@ -78,8 +79,8 @@ const SelectionLine = (props: SelectionLinePropsInterface) => {
                     <div className={select_css.cartText}>cart</div>
                 </button>
                 {isCartButtonPressed ?
-                    <Cart isCartButtonPressed={isCartButtonPressed}
-                          setCartButtonPressed={setCartButtonPressed}/>
+                    <CartContainer isCartButtonPressed={isCartButtonPressed}
+                                   setCartButtonPressed={setCartButtonPressed}/>
                 : null}
             </section>
         </div>

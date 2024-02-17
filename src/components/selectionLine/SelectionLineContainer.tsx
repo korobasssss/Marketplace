@@ -1,4 +1,4 @@
-import {SelectionLineInterface} from "../interface/selectionLineInterface";
+import {SelectionLineInterface} from "../../interface/selectionLineInterface";
 import {findProduct, getCategory} from "../../store/thunks/selectionLineThunk";
 import {connect} from "react-redux";
 import {setInputSearch} from "../../store/reducers/selectionLineReducer";

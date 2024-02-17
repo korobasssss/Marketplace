@@ -12,6 +12,20 @@ export interface OneProductInterface {
     images: string[]
 }
 
-export interface OneProductProps {
+export interface OneProductPropsClass {
+    product: OneProductInterface
+
+    addOneProductToCart(product: OneProductInterface): void
+    deleteOneProductFromCart(index: number): void
+}
+export interface OneProductStateClass {
     product: OneProductInterface
 }
+
+export interface OneProductProps {
+    product: OneProductInterface
+
+    addOneProductToCart(): void
+    deleteOneProductFromCart(): void
+}
+

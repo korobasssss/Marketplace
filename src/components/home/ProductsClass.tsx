@@ -1,6 +1,6 @@
 import React from "react";
 import Products from "./Products";
-import {ProductsPropsClass, ProductsState} from "../interface/productsInterface";
+import {ProductsPropsClass, ProductsState} from "../../interface/productsInterface";
 
 class ProductsClass extends React.Component<ProductsPropsClass, ProductsState> {
 
