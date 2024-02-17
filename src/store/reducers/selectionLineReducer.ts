@@ -1,37 +1,34 @@
+import {CategoriesArr} from "../../interface/selectionLineInterface";
+
+const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES'
 const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 const SET_INPUT_SEARCH = 'SET_INPUT_SEARCH'
 
-const initialState = { // todo брать категории из апи
-    categories:
-        [
-            {type: 'all', isActive: true},
-            {type: 'smartphones', isActive: false},
-            {type: 'laptops', isActive: false},
-            {type: 'fragrances', isActive: false},
-            {type: 'skincare', isActive: false},
-            {type: 'groceries', isActive: false},
-            {type: 'home-decoration', isActive: false},
-            {type: 'furniture', isActive: false},
-            {type: 'tops', isActive: false},
-            {type: 'womens-dresses', isActive: false},
-            {type: 'womens-shoes', isActive: false},
-            {type: 'mens-shirts', isActive: false},
-            {type: 'mens-shoes', isActive: false},
-            {type: 'mens-watches', isActive: false},
-            {type: 'womens-watches', isActive: false},
-            {type: 'womens-bags', isActive: false},
-            {type: 'womens-jewellery', isActive: false},
-            {type: 'sunglasses', isActive: false},
-            {type: 'automotive', isActive: false},
-            {type: 'motorcycle', isActive: false},
-            {type: 'lighting', isActive: false}
-        ],
+const initialState: { categories: CategoriesArr[], inputSearch: string } = { // todo брать категории из апи
+    categories: [],
     inputSearch: ''
 }
 
 const selectionReducer = (state = initialState, action: any) => {
     let stateCopy = {...state, categories: [...state.categories]}
     switch (action.type) {
+        case GET_ALL_CATEGORIES : {
+            stateCopy.categories.push(
+                {
+                    type: 'all',
+                    isActive: true
+                }
+            )
+            for (let i = 0; i < action.categories.length; i++) {
+                stateCopy.categories.push(
+                    {
+                        type: action.categories[i],
+                        isActive: false
+                    }
+                )
+            }
+            return stateCopy
+        }
         case SET_ACTIVE_CATEGORY : {
             for (let index = 0; index < stateCopy.categories.length; index++) {
                 stateCopy.categories[index].isActive = index === action.index;
@@ -49,6 +46,11 @@ const selectionReducer = (state = initialState, action: any) => {
     }
 }
 
+export const getAllCategories = (categories: string[]) => {
+    return {
+        type: GET_ALL_CATEGORIES, categories
+    }
+}
 export const setActiveCategory = (index: number) => {
     return {
         type: SET_ACTIVE_CATEGORY, index

@@ -27,4 +27,14 @@ export const ProductsAPI = {
             console.log(error)
         }
     },
+
+    setAllCategories: async () => {
+        try {
+            const response = await instance.get(`/products/categories`)
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
 }

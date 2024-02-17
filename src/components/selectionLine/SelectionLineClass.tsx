@@ -7,6 +7,10 @@ import SelectionLine from "./SelectionLine";
 
 class SelectionLineClass extends Component<SelectionLinePropsClassInterface, SelectionLineStateInterface> {
 
+    componentDidMount() {
+        this.props.getAllCategoryNames()
+    }
+
     setInputSearch = (inputSearch: string) => {
         this.props.setInputSearch(inputSearch)
         this.props.findProduct(inputSearch)

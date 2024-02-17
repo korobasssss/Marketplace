@@ -1,10 +1,19 @@
 import {Dispatch} from "redux";
-import {setActiveCategory, setInputSearch} from "../reducers/selectionLineReducer";
+import {getAllCategories, setActiveCategory, setInputSearch} from "../reducers/selectionLineReducer";
 import {ProductsAPI} from "../../api/api/productsAPI";
 import {setProducts} from "../reducers/productsReducer";
 import {setAllProducts} from "./productsThunk";
 
 
+
+export const getAllCategoryNames = () => {
+    return (dispatch: Dispatch) => {
+        ProductsAPI.setAllCategories()
+            .then(response => {
+                dispatch(getAllCategories(response))
+            })
+    }
+}
 
 export const getCategory = (type: string, index: number) => {
     return (dispatch: Dispatch) => {

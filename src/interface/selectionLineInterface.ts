@@ -1,4 +1,5 @@
 import {OneProductCartInterface} from "./oneSelectedProductInterface";
+import {getAllCategoryNames} from "../store/thunks/selectionLineThunk";
 
 export interface SelectionLineInterface {
     selectionLine : {
@@ -30,7 +31,7 @@ export interface SelectionLinePropsClassInterface {
 
     setInputSearch(product: string): void
     findProduct(product: string): void
-    //setAllProducts(): void
+    getAllCategoryNames(): void
     getCategory(type: string, index: number): void
 }
 export interface SelectionLinePropsInterface {

@@ -1,5 +1,5 @@
 import {SelectionLineInterface} from "../../interface/selectionLineInterface";
-import {findProduct, getCategory} from "../../store/thunks/selectionLineThunk";
+import {findProduct, getAllCategoryNames, getCategory} from "../../store/thunks/selectionLineThunk";
 import {connect} from "react-redux";
 import {setInputSearch} from "../../store/reducers/selectionLineReducer";
 import SelectionLineClass from "./SelectionLineClass";
@@ -17,7 +17,8 @@ const mapStateToProps = (state : SelectionLineInterface) => {
 const mapDispatchToProps  = {
     setInputSearch,
     findProduct,
-    getCategory
+    getCategory,
+    getAllCategoryNames
 }
 
 export const SelectionLineContainer = connect(mapStateToProps, mapDispatchToProps)(SelectionLineClass)
