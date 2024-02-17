@@ -7,7 +7,10 @@ import SelectionLineClass from "./SelectionLineClass";
 const mapStateToProps = (state : SelectionLineInterface) => {
     return {
         categories: state.selectionLine.categories,
-        inputSearch: state.selectionLine.inputSearch
+        inputSearch: state.selectionLine.inputSearch,
+
+        cartProducts: state.cart.cartProducts,
+        countCartProducts: state.cart.count
     }
 }
 

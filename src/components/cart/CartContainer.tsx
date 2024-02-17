@@ -3,7 +3,6 @@ import {CartState} from "../../interface/cartInterface";
 import Cart from "./Cart";
 import {
     addOneCountProductToCart,
-    addOneProductToCart,
     deleteOneCountProductFromCart,
     deleteOneProductFromCart
 } from "../../store/thunks/cartThunk";

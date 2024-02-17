@@ -1,9 +1,9 @@
 import search_icon from '../../assets/search_icon.svg'
 import cart_icon from '../../assets/cart_icon.svg'
+import cart_icon_white from '../../assets/cart_icon_white.svg'
 import close_icon from '../../assets/close_icon.svg'
 import select_css from './SelectionLine.module.css'
 import React, {useState} from "react";
-import Cart from "../cart/Cart";
 import {CategoriesArr, SelectionLinePropsInterface} from "../../interface/selectionLineInterface";
 import {CartContainer} from "../cart/CartContainer";
 const SelectionLine = (props: SelectionLinePropsInterface) => {
@@ -74,10 +74,26 @@ const SelectionLine = (props: SelectionLinePropsInterface) => {
 
                 </section>
 
-                <button className={select_css.cart} onClick={() => setCartButtonPressed(true)}>
-                    <img src={cart_icon} alt={'cart icon'}/>
-                    <div className={select_css.cartText}>cart</div>
-                </button>
+                {props.cartProducts.length === 0 ?
+                    <button className={select_css.cartWithoutProducts}
+                            onClick={() => setCartButtonPressed(true)}>
+                        <img src={cart_icon} alt={'cart icon'}/>
+                        cart
+                    </button>
+                    :
+                    <section>
+                        <button className={select_css.cartWithoutProducts + ' ' + select_css.cartWithProducts}
+                                onClick={() => setCartButtonPressed(true)}>
+                            <img src={cart_icon_white} alt={'cart icon'}/>
+                            cart
+                        </button>
+                        <section className={select_css.countCartProducts}>{props.countCartProducts}</section>
+                    </section>
+
+
+                }
+
+
                 {isCartButtonPressed ?
                     <CartContainer isCartButtonPressed={isCartButtonPressed}
                                    setCartButtonPressed={setCartButtonPressed}/>

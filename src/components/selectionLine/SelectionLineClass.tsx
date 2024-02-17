@@ -24,7 +24,9 @@ class SelectionLineClass extends Component<SelectionLinePropsClassInterface, Sel
                               inputSearch={this.props.inputSearch}
                               setInputSearch={this.setInputSearch}
                               chooseCategory={this.chooseCategory}
-                              deleteInputSearch={this.deleteInputSearch}/>;
+                              deleteInputSearch={this.deleteInputSearch}
+                              cartProducts={this.props.cartProducts}
+                              countCartProducts={this.props.countCartProducts}/>;
     }
 }
 

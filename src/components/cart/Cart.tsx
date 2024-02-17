@@ -15,7 +15,7 @@ const Cart = (props: CartProps) => {
                         <header className={cart_css.header}>
                             <section className={cart_css.cart}>
                                 <img src={cart_icon} alt={'cart icon'}/>
-                                <div className={cart_css.cartText}>cart</div>
+                                cart
                             </section>
                             <button className={cart_css.cancel}><img src={close_icon} alt={'close icon'}
                                                                      onClick={() => props.setCartButtonPressed(false)}/>

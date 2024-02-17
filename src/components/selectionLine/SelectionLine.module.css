@@ -6,7 +6,7 @@
     display: grid;
 
     background: #EFEEF4;
-    z-index: 999;
+    z-index: 100;
 }
 
 .header {
@@ -96,7 +96,7 @@ input:focus {
     transition: all 0.2s ease-in-out;
 }
 
-.cart {
+.cartWithoutProducts {
     height: 28px;
     display: grid;
     align-items: center;
@@ -104,16 +104,41 @@ input:focus {
     column-gap: 4px;
     padding: 0 8px 0 6px;
     border-radius: 4px;
-}
 
-.cartText {
     color: #3625FF;
     font-weight: 600;
+
+    transition: all 0.2s ease-out;
 }
 
+.cartWithProducts {
+    background-color: #3625FF;
+    color: white;
+
+    transition: all 0.2s ease-out;
+}
+.countCartProducts {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    color: #3625FF;
+    border-radius: 200px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 101;
+
+    font-weight: 600;
+
+    transition: all 0.2s ease-out;
+}
 
 .categories::-webkit-scrollbar {
-    height: 0px;
+    height: 0;
 }
 
 .categories::-webkit-scrollbar-track {

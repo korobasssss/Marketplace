@@ -1,13 +1,19 @@
+import {OneProductCartInterface} from "./oneSelectedProductInterface";
+
 export interface SelectionLineInterface {
     selectionLine : {
         categories: CategoriesArr[],
         inputSearch: string
     }
+    cart: {
+        cartProducts: OneProductCartInterface[],
+        count: number
+    }
 }
 
 export interface SelectionLineStateInterface {
     categories: CategoriesArr[],
-    inputSearch: string
+    inputSearch: string,
 }
 
 export interface CategoriesArr {
@@ -18,6 +24,10 @@ export interface CategoriesArr {
 export interface SelectionLinePropsClassInterface {
     categories: CategoriesArr[]
     inputSearch: string
+
+    cartProducts: OneProductCartInterface[],
+    countCartProducts: number
+
     setInputSearch(product: string): void
     findProduct(product: string): void
     //setAllProducts(): void
@@ -26,6 +36,10 @@ export interface SelectionLinePropsClassInterface {
 export interface SelectionLinePropsInterface {
     categories: CategoriesArr[]
     inputSearch: string
+
+    cartProducts: OneProductCartInterface[],
+    countCartProducts: number
+
     setInputSearch(product: string): void
     chooseCategory(type: string, index: number): void
     deleteInputSearch():void

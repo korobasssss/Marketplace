@@ -43,6 +43,8 @@
     display: grid;
     top: 0;
     left: 0;
+
+    z-index: 500;
 }
 
 .cartPlace {
@@ -51,7 +53,7 @@
     display: grid;
     justify-self: end;
 
-    z-index: 1000;
+    z-index: 500;
     width: 320px;
     height: 100%;
     background-color: #FFFFFF;
@@ -75,7 +77,7 @@
     padding: 22px 0 24px 20px;
 }
 
-.cart {
+.cartWithoutProducts {
     width: 53px;
     display: grid;
     align-items: center;
@@ -95,6 +97,18 @@
     display: grid;
     grid-template-columns: 53px auto;
     padding-right: 20px;
+}
+
+.cart {
+    height: 28px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20px auto;
+    column-gap: 4px;
+    border-radius: 4px;
+
+    color: #3625FF;
+    font-weight: 600;
 }
 
 .cancel {
