@@ -9,7 +9,8 @@ class ProductsClass extends React.Component<ProductsPropsClass, ProductsState> {
     }
 
     render() {
-        return <Products products={this.props.products}/>
+        return <Products products={this.props.products}
+                         cartProducts={this.props.cartProducts}/>
     }
 }
 

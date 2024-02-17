@@ -5,7 +5,9 @@ import OneProductClass from "./OneProductClass";
 
 
 const mapStateToProps = () => {
-    return {}
+    return {
+
+    }
 }
 
 const mapDispatchToProps = {

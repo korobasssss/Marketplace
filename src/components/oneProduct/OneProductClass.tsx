@@ -14,7 +14,8 @@ class OneProductClass extends Component<OneProductPropsClass, OneProductStateCla
     render() {
         return <OneProduct product={this.props.product}
                            addOneProductToCart={this.addOneProductToCart}
-                           deleteOneProductFromCart={this.deleteOneProductFromCart}/>;
+                           deleteOneProductFromCart={this.deleteOneProductFromCart}
+                           isInCartProducts={this.props.isInCartProducts}/>;
     }
 }
 

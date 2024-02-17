@@ -4,6 +4,7 @@ import {ProductsProps} from "../../interface/productsInterface";
 import {OneProductInterface} from '../../interface/oneProductInterface'
 import {SelectionLineContainer} from "../selectionLine/SelectionLineContainer";
 import {OneSelectedProductContainer} from "../oneProduct/OneProductContainer";
+import {OneProductCartInterface} from "../../interface/oneSelectedProductInterface";
 
 const Products = (props: ProductsProps) => {
     return (
@@ -13,7 +14,14 @@ const Products = (props: ProductsProps) => {
             </header>
             <main className={main_css.products}>
                 {props.products.map((oneProduct: OneProductInterface, index) => {
-                    return <OneSelectedProductContainer key={index} product={oneProduct}/>
+                    let flag = false
+                    props.cartProducts.map((oneProductInCart: OneProductCartInterface) => {
+                        if (oneProductInCart.id === oneProduct.id) {
+                            flag = true
+                        }
+                    })
+                    return <OneSelectedProductContainer key={index} product={oneProduct}
+                                                        isInCartProducts={flag}/>
                 })}
             </main>
             <footer className={main_css.footer}>

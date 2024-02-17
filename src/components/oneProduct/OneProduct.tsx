@@ -6,16 +6,14 @@ import {useState} from "react";
 import {OneProductProps} from "../../interface/oneProductInterface";
 
 const OneProduct = (props: OneProductProps) => {
+
     const [isButtonReadMorePressed, setButtonReadMorePressed] = useState(false)
-    const [isButtonInCart, setButtonInCart] = useState(false)
     const [photoIndex, setPhotoIndex] = useState(0)
 
     const clickToAddToCart = () => {
-        setButtonInCart(true)
         props.addOneProductToCart()
     }
     const clickToDeleteFromCart = () => {
-        setButtonInCart(false)
         props.deleteOneProductFromCart()
     }
 
@@ -74,7 +72,7 @@ const OneProduct = (props: OneProductProps) => {
 
                 </section>
                 <section className={oneProduct_css.price}>
-                    {isButtonInCart ?
+                    {props.isInCartProducts ?
                         <button className={oneProduct_css.buttonAddToCart + ' ' + oneProduct_css.buttonAddedToCart}
                                 onClick={clickToDeleteFromCart}>
                             <img src={buy_iconBlue} alt={'buy icon'}/>
