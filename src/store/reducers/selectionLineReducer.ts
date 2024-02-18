@@ -4,8 +4,9 @@ const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES'
 const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
 const SET_INPUT_SEARCH = 'SET_INPUT_SEARCH'
 
-const initialState: { categories: CategoriesArr[], inputSearch: string } = {
+const initialState: { categories: CategoriesArr[], activeCategory: string, inputSearch: string } = {
     categories: [],
+    activeCategory: 'all',
     inputSearch: ''
 }
 
@@ -32,8 +33,12 @@ const selectionReducer = (state = initialState, action: any) => {
         }
         case SET_ACTIVE_CATEGORY : {
             for (let index = 0; index < stateCopy.categories.length; index++) {
-                stateCopy.categories[index].isActive = index === action.index;
-
+                if (index === action.index) {
+                    stateCopy.activeCategory = stateCopy.categories[index].type
+                    stateCopy.categories[index].isActive = true
+                } else {
+                    stateCopy.categories[index].isActive = false
+                }
             }
             return stateCopy
         }

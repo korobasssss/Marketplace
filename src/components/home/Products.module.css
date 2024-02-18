@@ -15,9 +15,35 @@
 }
 
 .footer {
+    height: 64px;
     display: grid;
     align-items: center;
     border: 1px solid #FFFFFF;
+}
+
+.loading {
+    height: 64px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    align-self: start;
+}
+.loading img {
+    animation: scroll 1s linear infinite;
+}
+.loading button {
+    background-color: transparent;
+}
+@keyframes scroll {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media screen and (min-width: 1770px) {

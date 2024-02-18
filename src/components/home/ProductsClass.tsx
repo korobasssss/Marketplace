@@ -8,9 +8,15 @@ class ProductsClass extends React.Component<ProductsPropsClass, ProductsState> {
         this.props.setAllProducts()
     }
 
+    addBatchOfProducts = (skip: number) => {
+        this.props.addBatchOfProducts(this.props.activeCategory, skip)
+    }
+
     render() {
         return <Products products={this.props.products}
-                         cartProducts={this.props.cartProducts}/>
+                         cartProducts={this.props.cartProducts}
+                         loaderIcon={this.props.loaderIcon}
+                         addBatchOfProducts={this.addBatchOfProducts}/>
     }
 }
 

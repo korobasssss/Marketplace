@@ -1,18 +1,18 @@
 import {instance} from "../config";
 
 export const ProductsAPI = {
-    setAllProducts: async () => {
+    setAllProducts: async (skip: number) => {
         try {
-            const response = await instance.get('products')
+            const response = await instance.get(`products?limit=10&skip=${skip}`)
             return response.data.products;
         } catch (error) {
             console.log(error);
         }
     },
 
-    setOneCategory: async (category: string) => {
+    setOneCategory: async (category: string, skip: number) => {
         try {
-            const response = await instance.get(`products/category/${category}`)
+            const response = await instance.get(`products/category/${category}?limit=10&skip=${skip}`)
             return response.data.products
         } catch (error) {
             console.log(error)
@@ -30,7 +30,7 @@ export const ProductsAPI = {
 
     setAllCategories: async () => {
         try {
-            const response = await instance.get(`/products/categories`)
+            const response = await instance.get(`products/categories`)
             return response.data
         } catch (error) {
             console.log(error)

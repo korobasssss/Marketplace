@@ -1,7 +1,7 @@
 import {Dispatch} from "redux";
 import {getAllCategories, setActiveCategory, setInputSearch} from "../reducers/selectionLineReducer";
 import {ProductsAPI} from "../../api/api/productsAPI";
-import {setProducts} from "../reducers/productsReducer";
+import {setLoaderIcon, setProducts} from "../reducers/productsReducer";
 import {setAllProducts} from "./productsThunk";
 
 
@@ -21,13 +21,14 @@ export const getCategory = (type: string, index: number) => {
             // @ts-ignore todo чтото с этим сделать
             dispatch(setAllProducts())
         } else {
-            ProductsAPI.setOneCategory(type)
+            ProductsAPI.setOneCategory(type, 0)
                 .then(response => {
                     dispatch(setProducts(response))
                 })
 
         }
         dispatch(setActiveCategory(index))
+        dispatch(setLoaderIcon(true))
     }
 }
 
