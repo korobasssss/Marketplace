@@ -46,9 +46,11 @@ const SelectionLine = (props: SelectionLinePropsInterface) => {
         setSearchButtonPressed(false)
         props.deleteInputSearch()
     }
-    const chooseCategory = (type: string, index: number) => {
-        props.chooseCategory(type, index)
-        navigate(`?category=${type}`);
+    const chooseCategory = (type: string, isActive: boolean, index: number) => {
+        if (!isActive) {
+            props.chooseCategory(type, index)
+            navigate(`?category=${type}`);
+        }
     }
 
     return (
@@ -72,7 +74,7 @@ const SelectionLine = (props: SelectionLinePropsInterface) => {
                                                                    onMouseMove={mouseMove}>
                             {props.categories.map((oneCategory : CategoriesArr, index) => {
                                 return <button key={index} className={oneCategory.isActive ? select_css.activeCategory : select_css.oneCategory}
-                                               onClick={() => chooseCategory(oneCategory.type, index)}>
+                                               onClick={() => chooseCategory(oneCategory.type, oneCategory.isActive, index)}>
                                     {oneCategory.isActive ? '•' : ''} {oneCategory.type}
                                 </button>
                             })}
