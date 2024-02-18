@@ -7,36 +7,12 @@ import select_css from './SelectionLine.module.css'
 import React, {useState} from "react";
 import {CategoriesArr, SelectionLinePropsInterface} from "../../interface/selectionLineInterface";
 import {CartContainer} from "../cart/CartContainer";
+import {mouseDown, mouseLeave, mouseMove, mouseUp} from "./move";
 const SelectionLine = (props: SelectionLinePropsInterface) => {
     const navigate = useNavigate();
 
     const [isSearchButtonPressed, setSearchButtonPressed] = useState(false)
     const [isCartButtonPressed, setCartButtonPressed] = useState(false)
-
-    let isDown = false; // todo перенести в отдельный файл
-    let startX = 0;
-    let scrollLeft = 0;
-    const mouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
-        isDown = true;
-        event.currentTarget.classList.add('active');
-        startX = event.pageX - event.currentTarget.offsetLeft;
-        scrollLeft = event.currentTarget.scrollLeft;
-    }
-    const mouseLeave = (event: React.MouseEvent<HTMLButtonElement>) => {
-        isDown = false;
-        event.currentTarget.classList.remove('active');
-    }
-    const mouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
-        isDown = false;
-        event.currentTarget.classList.remove('active');
-    }
-    const mouseMove = (event: React.MouseEvent<HTMLButtonElement>) => {
-        if(!isDown) return;
-        event.preventDefault();
-        const x = event.pageX - event.currentTarget.offsetLeft;
-        const walk = (x - startX); //scroll-fast
-        event.currentTarget.scrollLeft = scrollLeft - walk;
-    }
 
     const setInputSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         props.setInputSearch(event.target.value)

@@ -25,7 +25,7 @@
 }
 
 .addOrDeleteProduct {
-    padding: 4px 6px 4px 6px; /* todo исправить потом*/
+    padding: 4px 6px;
     display: flex;
     align-items: center;
     justify-items: center;

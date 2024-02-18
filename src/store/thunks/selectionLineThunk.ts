@@ -18,7 +18,7 @@ export const getAllCategoryNames = () => {
 export const getCategory = (type: string, index: number) => {
     return (dispatch: Dispatch) => {
         if (type === 'all' && index === 0) {
-            // @ts-ignore todo чтото с этим сделать
+            // @ts-ignore
             dispatch(setAllProducts())
         } else {
             ProductsAPI.setOneCategory(type, 0)
@@ -40,7 +40,7 @@ export const findProduct = (product: string) => {
                     dispatch(setProducts(response))
                 })
         } else {
-            // @ts-ignore todo чтото с этим сделать
+            // @ts-ignore
             dispatch(setAllProducts())
         }
     }

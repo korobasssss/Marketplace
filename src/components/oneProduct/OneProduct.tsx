@@ -43,7 +43,7 @@ const OneProduct = (props: OneProductProps) => {
             <footer
                 className={isButtonReadMorePressed ? oneProduct_css.infoWithDescr : oneProduct_css.infoWithoutDescr}>
                 <section className={oneProduct_css.infoWithoutDescr}>
-                    <section className={oneProduct_css.idkWhatIsiT}> {/* todo переименовать потом класс*/}
+                    <section className={oneProduct_css.idkWhatIsiT}>
                         <img src={starBlue_icon} alt={'blue star icon'}/>
                         <div>{props.product.rating}</div>
                     </section>

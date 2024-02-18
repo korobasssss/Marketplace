@@ -9,23 +9,6 @@
     background-color: #EFEEF4D9;
     overflow: hidden;
     opacity: 1;
-    animation: open 0.5s;
-}
-@keyframes open {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes close {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 .emptyCart {
@@ -57,19 +40,8 @@
     width: 320px;
     height: 100%;
     background-color: #FFFFFF;
-
-    right: -200px; /* Начальное положение блока за пределами экрана */
-    animation: slideIn 1s forwards ; /* Применение анимации slideIn длительностью 1 секунда */
 }
 
-@keyframes slideIn {
-    from {
-        right: -200px; /* Начальное положение блока за пределами экрана */
-    }
-    to {
-        right: 0; /* Конечное положение блока справа */
-    }
-}
 
 .cartMain {
     display: grid;
@@ -115,19 +87,6 @@
     width: 10px;
     display: grid;
     justify-self: end;
-}
-
-.cancel:focus {
-    animation: slideOut 1s forwards;
-}
-
-@keyframes slideOut {
-    from {
-        right: 0; /* Изначальное положение блока в правом верхнем углу */
-    }
-    to {
-        right: -200px; /* Конечное положение блока за пределами экрана */
-    }
 }
 
 .cancel img {
@@ -198,8 +157,4 @@
 .selectedProducts::-webkit-scrollbar-thumb {
     background: #d5d4d4;
     border-radius: 5px;
-}
-
-.close .overflay {
-    animation: close 0.5s;
 }
