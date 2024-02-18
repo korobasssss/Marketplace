@@ -10,12 +10,11 @@ export const setAllProductsInCart = () => {
         if (localStorage.getItem('persist:root') !== null)  {
             // @ts-ignore
             let root = JSON.parse(localStorage.getItem('persist:root'))
-            if (root.cart.cartProducts === undefined) {
-                dispatch(setAllProductsCart([]))
+            let rootCart = JSON.parse(root.cart)
+            if (rootCart === undefined) {
             } else {
-                dispatch(setAllProductsCart(root.cart.cartProducts))
+                dispatch(setAllProductsCart(rootCart))
             }
-
         }
     }
 }

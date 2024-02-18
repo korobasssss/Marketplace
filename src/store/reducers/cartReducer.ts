@@ -18,7 +18,9 @@ const cartReducer = (state = initialState, action : any) => {
     let stateCopy = {...state, cartProducts: [...state.cartProducts]}
     switch (action.type) {
         case SET_ALL_PRODUCTS_CART: {
-            stateCopy.cartProducts = action.cartProducts
+            stateCopy.cartProducts = action.cart.cartProducts
+            stateCopy.price = action.cart.price
+            stateCopy.count = action.cart.count
             return stateCopy
         }
         case ADD_PRODUCT: {
@@ -68,9 +70,9 @@ const cartReducer = (state = initialState, action : any) => {
     }
 }
 
-export const setAllProductsCart = (cartProducts: OneProductCartInterface[]) => {
+export const setAllProductsCart = (cart: {}) => {
     return {
-        type: SET_ALL_PRODUCTS_CART, cartProducts
+        type: SET_ALL_PRODUCTS_CART, cart
     }
 }
 export const addProductToCart = (oneProduct: OneProductInterface) => {

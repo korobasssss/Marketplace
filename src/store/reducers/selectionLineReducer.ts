@@ -28,7 +28,6 @@ const selectionReducer = (state = initialState, action: any) => {
                     }
                 )
             }
-            debugger
             return stateCopy
         }
         case SET_ACTIVE_CATEGORY : {
