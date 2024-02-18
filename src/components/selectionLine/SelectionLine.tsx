@@ -1,3 +1,4 @@
+import {useNavigate} from 'react-router-dom';
 import search_icon from '../../assets/search_icon.svg'
 import cart_icon from '../../assets/cart_icon.svg'
 import cart_icon_white from '../../assets/cart_icon_white.svg'
@@ -7,6 +8,8 @@ import React, {useState} from "react";
 import {CategoriesArr, SelectionLinePropsInterface} from "../../interface/selectionLineInterface";
 import {CartContainer} from "../cart/CartContainer";
 const SelectionLine = (props: SelectionLinePropsInterface) => {
+    const navigate = useNavigate();
+
     const [isSearchButtonPressed, setSearchButtonPressed] = useState(false)
     const [isCartButtonPressed, setCartButtonPressed] = useState(false)
 
@@ -43,6 +46,10 @@ const SelectionLine = (props: SelectionLinePropsInterface) => {
         setSearchButtonPressed(false)
         props.deleteInputSearch()
     }
+    const chooseCategory = (type: string, index: number) => {
+        props.chooseCategory(type, index)
+        navigate(`?category=${type}`);
+    }
 
     return (
         <div className={select_css.root}>
@@ -65,7 +72,7 @@ const SelectionLine = (props: SelectionLinePropsInterface) => {
                                                                    onMouseMove={mouseMove}>
                             {props.categories.map((oneCategory : CategoriesArr, index) => {
                                 return <button key={index} className={oneCategory.isActive ? select_css.activeCategory : select_css.oneCategory}
-                                               onClick={() => props.chooseCategory(oneCategory.type, index)}>
+                                               onClick={() => chooseCategory(oneCategory.type, index)}>
                                     {oneCategory.isActive ? '•' : ''} {oneCategory.type}
                                 </button>
                             })}
